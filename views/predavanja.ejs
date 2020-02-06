@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title><%= title %>Predmeti</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        h1{
+            color: black;
+            font-family: Courier New,Courier, monospace;
+            text-align: center;
+            border-bottom: 2px solid greenyellow ;
+        }
+    </style>
+</head>
+
+<body>
+<div class="naslov">
+    <h1>Lista predmet</h1>
+</div>
+
+<div class="predavanja">
+    <table>
+        <tr>
+            <th>Predavanje broj: </th>
+        </tr>
+        <%for (var i=0; i<predavanja.length; i++) {%>
+            <tr>
+                <td><%= predavanja[i].broj_predavanja%></td>
+                <td>
+                    <button action="/anketa" method="post" type="button">Ankete</button>
+                </td>
+                <td>
+                    <button acction="/pokreni" method="post" type="button">Pokreni anketu</button>
+                </td>
+            </tr>
+        <%}%>
+    </table>
+</div>
+
+</body>
+
+</html>

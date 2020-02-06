@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projekat</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        h1,p{
+            color: black;
+            font-family: Courier New,Courier, monospace;
+            text-align: center;
+            border-bottom: 2px solid greenyellow ;
+        }
+    </style>
+</head>
+
+<body>
+<div class="jumbotron text-center">
+    <h1>Dobro dosli!</h1>
+    <p>Pripremite predavanje.</p>
+</div>
+<br>
+<div class="container">
+    <h1>Tekstualna pitanja</h1>
+
+    <form action="/tekst" method="post" class="col-sm-15">
+        <input type="text" name="pitanje" placeholder="Unesite pitanje" required>
+        <button type="submit" class="submit" onclick="spasi()">Spasi</button>
+    </form>
+    <form action="/visestruki" method="post" class="col-sm-15">
+        <input type="text" name="pitanja" placeholder="Unesite pitanje" required>
+            <input type="checkbox" name="opcija1">
+            <input type="checkbox" name="opcija2">
+            <input type="checkbox" name="opcija3">
+            <input type="checkbox" name="opcija4">
+        <button type="submit" class="submit" onclick="spasi()">Spasi</button>
+    </form>
+    <form action="/dane" method="post" class="col-sm-15">
+        <input type="text" name="pitanja" placeholder="Unesite pitanje" required>
+        <input type="checkbox" name="da">
+        <input type="checkbox" name="ne">
+        <button type="submit" class="submit" onclick="spasi()">Spasi</button>
+    </form>
+</div>
+<script>
+    function spasi(id) {
+        $.ajax({
+            url: 'spasi/'+id,
+            method: 'POST'
+        }).done(function(result){
+            location.reload();
+        });
+    }
+</script>
+</body>
+</html>
+

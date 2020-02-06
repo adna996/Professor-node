@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Projekat</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        body{
+            background-color:lightgrey;
+        }
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            font-family: Courier New,Courier, monospace;
+            text-align: center;
+        }
+        .container input[type="password"],
+        .container input[type="text"]{
+            width: 120%;
+            padding: 15px;
+            border: 1px solid greenyellow;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+        .container input[type="submit"]{
+            width: 120%;
+            padding: 15px;
+            border: 0;
+            background-color: greenyellow;
+            box-sizing: border-box;
+            cursor: pointer;
+            font-weight: bold;
+            color: rgba(79, 120, 128, 0.39);
+        }
+        .container h1{
+            text-align: center;
+            color: rgba(79, 120, 128, 0.39);;
+            font-size: 30px;
+            padding: 20px 0 20px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+<div class="jumbotron text-center">
+    <h1>Dobro dosli!</h1>
+</div>
+<br>
+<div class="container">
+    <form action="/submit" method="post" class="col-sm-15">
+        <input type="text" name="username" placeholder="username" required>
+        <input type="password" name="password" placeholder="Password" required>
+        <input type="submit" id="submit">
+    </form>
+</div>
+<script>
+
+</script>
+</body>
+</html>
+

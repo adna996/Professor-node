@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Predmeti</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <style>
+        body{
+            background-color: lightgrey;
+        }
+        .naslov{
+            color: black;
+            font-family: Courier New,Courier, monospace;
+            text-align: center;
+            border-bottom: 2px solid greenyellow ;
+        }
+
+    </style>
+</head>
+
+<body>
+<div class="naslov">
+    <h1><b></b>Predmeti</h1>
+</div>
+
+<div class="predmeti">
+    <table>
+        <tr>
+            <th>Naziv predmeta </th>
+        </tr>
+        <%for (var i=0; i<predmet.length; i++) {%>
+            <tr>
+                <td><%= predmet[i].naziv_predmet %></td>
+                <td>
+                    <button action="/predavanja" method="post" type="button">Predavanja</button>
+                </td>
+            </tr>
+        <%}%>
+    </table>
+</div>
+
+</body>
+</html>
