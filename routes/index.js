@@ -1,8 +1,9 @@
 var express = require('express');
 var router = express.Router();
-var PORT =process.env.PORT||3000
+const PORT = process.env.PORT||3000;
+var io=null;
 
-var config = {
+const config = {
   user: 'omjahhkk',
   database: 'omjahhkk',
   password: 'uzrqdTx13-FcHD-WOK9KvZlKjUXWg1WH', //env var: PGPASSWORD
@@ -12,91 +13,62 @@ var config = {
   idleTimeoutMillis: 30000
 };
 
-
 var pg = require('pg');
 var pool = new pg.Pool(config);
 
 /* GET home page. */
-
-router.get('/',
-    function(req, res, next) {
-        res.render('index');
-});
+router.get('/',(req,res)=>res.render('welcome'));
 
 
-router.post('/submit',
-    function(req, res,next) => {
-    res.render('predmeti');
-    pool.connect(function (err, client, done) {
-        if (err) {
-            res.end('{"error" : "Error",' +
-                ' "status" : 500}');
-        }
-        client.query(
-            "SELECT * FROM predmet" +
-            "WHERE naziv_predmet = $1 order by id_predmet",
-            [req.params.naziv_predmet],
-            function (err, result) {
-                done();
-                if (err) {
-                    console.info(err);
-                    res.sendStatus(400);
-                } else {
-                    res.render('predmeti',{
-                        predmet:result.rows,
-                    });
-                }
-                });
+router.get('/predmet', function(req, res, next) {
+  pool.connect(function (err, client, done) {
+    if (err) {
+      res.end('{"error" : "Error",' +
+          ' "status" : 500}');
+    }
+
+    client.query(
+        "SELECT * FROM predmet; ",
+        function (err, result) {
+          done();
+
+          if (err) {
+            console.info(err);
+            res.sendStatus(400);
+          } else {
+            res.render('predmet', {
+              title: 'Predmet',
+              predmet: result.rows
             });
-    });
-
-router.post('/predavanja',
-    function(req,res,next)=> {
-    res.render('predavanja');
-    pool.connect(function (err, client, done) {
-        if (err) {
-            res.end('{"error" : "Error",' +
-                ' "status" : 500}');
-        }
-        client.query(
-            "SELECT * FROM predavanja " +
-            "WHERE broj_predavanja = $1 order by id_predmet",
-            [req.params.broj_predavanja],
-            function (err, result) {
-                done();
-                if (err) {
-                    console.info(err);
-                    res.sendStatus(400);
-                } else {
-                    res.render('predmeti',{
-                        predavanja:result.rows,
-                    });
-                }
-            });
-    });
-});
-
-router.post('/anketa',
-    function(req,res,next)=>{
-        res.render('anketiranje');
-        pool.connect(function (err, client, done) {
-            if (err) {
-                res.end('{"error" : "Error",' +
-                    ' "status" : 500}');
-            }
+          }
         });
+  });
 });
 
-router.post('/pokreni',
-    function(res,req,next)=>{
-       res.render('pokreni');
-       pool.connect(function (err, client, done) {
-           if (err) {
-               res.end('{"error" : "Error",' +
-                   ' "status" : 500}');
-           }
-           client.query()
-       });
+
+router.post('/login/predmet/predavanja/:id', function(req, res, next) {
+    var id=req.params.id;
+  pool.connect(function (err, client, done) {
+    if (err) {
+      res.end('{"error" : "Error",' +
+          ' "status" : 500}');
+    }
+
+    client.query("SELECT broj_predavanja FROM predavanja " +
+        "INNER JOIN predmet WHERE predmet.id = $predavanja.id_predmet;",
+        [req.params.id],
+        function (err, result) {
+          done();
+
+          if (err) {
+            console.info(err);
+            res.sendStatus(400);
+          } else {
+            res.sendStatus(200);
+          }
+        });
+  });
 });
+
 
 module.exports = router;
