@@ -18,16 +18,35 @@
                 <h1 class="text-center mb-3"style="border-bottom: 1px solid lightgrey;padding: 20px;">
                     <i class="fas fa-user-plus"></i> SignUp
                 </h1>
-                <form action="/users/register" method="POST">
+                <form action="/register" method="post">
                     <div class="form-group">
-                        <label for="input-lg">Name</label><br>
+                        <label for="input-lg">UserName</label><br>
                         <input
-                                type="name"
-                                id="name"
-                                name="name"
+                                type="text"
+                                id="username"
+                                name="username"
                                 class="form-control"
-                                placeholder="Enter Name"
-                                value="<%= typeof name != 'undefined' ? name : '' %>"
+                                placeholder="Unesite UserName"
+                        />
+                    </div><br>
+                    <div class="form-group">
+                        <label for="input-lg">Ime korisnika</label><br>
+                        <input
+                                type="text"
+                                id="ime"
+                                name="ime"
+                                class="form-control"
+                                placeholder="Unesite ime"
+                        />
+                    </div><br>
+                    <div class="form-group">
+                        <label for="input-lg">Prezime</label><br>
+                        <input
+                                type="text"
+                                id="prezime"
+                                name="prezime"
+                                class="form-control"
+                                placeholder="Unesite prezime"
                         />
                     </div><br>
                     <div class="form-group">
@@ -37,7 +56,7 @@
                                 id="email"
                                 name="email"
                                 class="form-control"
-                                placeholder="Enter Email"
+                                placeholder="Unesite email"
                                 value="<%= typeof email != 'undefined' ? email : '' %>"
                         />
                     </div><br>
@@ -48,33 +67,22 @@
                                 id="password"
                                 name="password"
                                 class="form-control"
-                                placeholder="Create Password"
+                                placeholder="Unesite Password"
                                 value="<%= typeof password != 'undefined' ? password : '' %>"
-                        />
-                    </div><br>
-                    <div class="form-group">
-                        <label for="password2">Confirm Password</label><br>
-                        <input
-                                type="password"
-                                id="password2"
-                                name="password2"
-                                class="form-control"
-                                placeholder="Confirm Password"
-                                value="<%= typeof password2 != 'undefined' ? password2 : '' %>"
                         />
                     </div><br>
                     <button type="submit" class="btn btn-primary btn-block" style="background-color: red;border: 0.5px solid red">
                         Register
                     </button>
                 </form><br>
-                <p class="lead mt-4">Vec imate racun? <a href="/users/login" style="text-decoration: none; color: red;">Login</a></p>
+                <p class="lead mt-4">Vec imate racun? <a href="/login" style="text-decoration: none; color: red;">Login</a></p>
             </div>
         </div>
-        <div style="margin: 188px;">
-            <img src="/images/register.png"/">
-        </div>
+        <img src="/images/register.png" style="margin: 150px;"/>
     </div>
+
 </div>
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

@@ -11,23 +11,25 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body style="text-align: center">
+<form action="/predavanja/:id" method="get">
 <div class="row mt-8" style="margin: 70px 35px;font-family: 'Candara Light';text-align: justify">
     <div class="row mt-15 ">
         <div class="col-md-6 m-auto">
             <div class="card card-body">
                 <h1 class="text-center mb-3"style="border-bottom: 1px solid lightgrey;padding: 20px;">
-                    <i class="fas fa-graduation-cap fa-3x">Predmeti</i>
+                    <i class="fas fa-graduation-cap fa-3x">Lectures</i>
                 </h1>
-                <table action="/users/login/index/predmet/predavanja" method="POST" style="padding: 10px;">
+                <table style="padding: 10px;">
                     <tr>
-                        <th style="font-size: 50px;">Broj predavanja: </th>
+                        <th style="font-size: 50px;">Number of lectures: </th>
                     </tr>
                     <%for(var i=0;i<predavanja.length;++i){%>
                     <tr style="font-size: 28px;">
-                        <td><%=predavanja[i].broj_predavanja %></td>
+                        <td><%="Lecture number " + predavanja[i].broj_predavanja %></td>
 
                         <td>
-                            <button onclick="izaberi(<%=predavanja[i].id%>)" style="background-color: coral; color: whitesmoke; border: 1px solid white;">IZABERI</button>
+                            <button  style="background-color: coral; color: whitesmoke; border: 1px solid white;"
+                                     onclick="izbrisi(<%=predavanja[i].id%>)" >DELETE</button>
                         </td>
                     </tr>
                     <%}%>
@@ -35,22 +37,29 @@
             </div>
         </div>
         <div style="margin: 100px 35px;">
-            <img src="/images/predmet.png"/">
+            <img src="/images/predmet.png"/>
+            <button type="button" data-toggle="modal" data-target="#formModal"
+                    style="background-color: coral; color: whitesmoke; border: 1px solid white;font-size: 28px;">
+                <a role="button" class="btn btn-secondary" href="/addLecture" style="text-decoration: none;color:whitesmoke;
+                font-family: Arial;font-size: 25px;">ADD LECTURE</a></button>
         </div>
     </div>
 </div>
+</form>
 
-<!--<script>
-    function odaberi(id) {
+
+<script>
+    function izbrisi(id) {
         $.ajax({
-            url: 'predavanja/'+id,
-            method: 'POST'
+            url: 'brisi/'+id,
+            method: 'DELETE'
         }).done(function(result){
             location.reload();
         });
     }
+
 </script>
--->
+
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>

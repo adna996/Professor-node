@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anketiranje</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="https://bootswatch.com/4/minty/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body style="text-align: center;">
+<div class="row mt-8" style="margin: 70px 35px;font-family: 'Candara Light';text-align: justify">
+<div class="row mt-15 ">
+    <div class="col-md-6 m-auto">
+        <div class="card card-body">
+            <h1 class="text-center mb-3"style="border-bottom: 1px solid lightgrey;padding: 20px;">
+                Preaper your questionnaire!
+            </h1>
+            <div style="display: flex;">
+                <div id="1" style="height:260px;width:339px;text-align:center;border-radius: 5px; background: red; border: 3px solid orangered;margin: 50px;"
+                >
+                    <form action="/pitanja" method="post" class="col-sm-15" >
+                        <input id="tekst" type="text" name="pitanje" placeholder="Enter your question"  style="text-align: center;font-family: Arial;font-size: 25px;
+                                                height: 35px;background: whitesmoke;" required><br><br>
+                        <input id="odg" type="text" name="odg" placeholder="Enter your answer"  style="text-align: center;font-family: Arial;font-size: 25px;
+                                                height: 35px;background: whitesmoke;" required>
+                        <button id="submit1" type="submit" class="btn btn-secondary" onclick="spasi()" style="font-family: Arial;font-size: 25px;margin-top: 5px;">Spasi</button>
+                    </form>
+                </div>
+                <div id="2" style="height:260px;width:339px;text-align:center;border-radius: 5px; background: red; border: 3px solid orangered;
+                    margin: 50px;">
+                    <form action="/pitanja" method="post" class="col-sm-15">
+                        <input id="visestruko" type="text" name="pitanje" placeholder="Enter your question" style="text-align: center;font-family: Arial;font-size: 25px;
+                                                height: 35px;background: whitesmoke;" required><br><br>
+                        <input type="checkbox" name="opcija1" style="padding: 15px;"><input type="text" name="odg" placeholder="Enter answer 1: "><br>
+                        <input type="checkbox" name="opcija2" style="padding: 15px;"><input type="text" name="odg" placeholder="Enter answer 2: "><br>
+                        <input type="checkbox" name="opcija3" style="padding: 15px;"><input type="text" name="odg" placeholder="Enter answer 3: "><br>
+                        <button id="submit2" type="submit" class="btn btn-secondary" onclick="spasi()" style="font-family: Arial;font-size: 25px;margin-top: 5px;">Spasi</button>
+                    </form>
+                </div>
+                <div id="3" style="height:260px;width:339px;text-align:center;border-radius: 5px; background: red; border: 3px solid orangered;
+                   margin: 50px;">
+                    <form action="/pitanja" method="post" class="col-sm-15" style="text-align: center;font-family: Arial;font-size: 25px;">
+                        <input id="DaNe" type="text" name="pitanje" placeholder="Enter your question" style="text-align: center;font-family: Arial;font-size: 25px;
+                                                height: 35px;background: whitesmoke;" required><br><br>
+                        <input type="checkbox" name="odg"> DA <br>
+                        <input type="checkbox" name="odg"> NE <br>
+                        <button id="submit3" type="submit" class="btn btn-secondary" onclick="spasi()" style="font-family: Arial;font-size: 25px; color: black;">Spasi</button>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+</div>
+
+<script>
+    var type=0;
+    function  dajTip(){
+        if(document.getElementById('submit1').clicked == 'true'){
+            type = 1;
+            //document.getElementById('2').style.display='none';
+            //document.getElementById('3').style.display='none';
+
+        }
+        if (document.getElementById('submit2').clicked == 'true'){
+            type = 2;
+            //document.getElementById('1').style.display='none';
+            //document.getElementById('3').style.display='none';
+
+        }
+        if (document.getElementById('submit3').clicked == 'true'){
+            type = 3;
+            //document.getElementById('1').style.display='none';
+            //document.getElementById('2').style.display='none';
+
+        }
+
+    }
+</script>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+</body>
+</html>

@@ -15,7 +15,18 @@
     <div class="col-md-6 m-auto" style="margin: 70px 35px;font-family: 'Candara Light';">
         <div class="card card-body">
             <h1 class="text-center mb-3" style="border-bottom: 1px solid red;padding: 20px;"><i class="fas fa-sign-in-alt"></i>  Login</h1>
-            <form action="/users/login" method="POST" style="padding: 20px;">
+            <form action="/login" method="post" style="padding: 20px;">
+
+                <div class="form-group">
+                    <label for="name">UserName</label>
+                    <input
+                            type="text"
+                            id="username"
+                            name="username"
+                            class="form-control"
+                            placeholder="Enter UserName"
+                    />
+                </div>
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input
@@ -36,16 +47,20 @@
                             placeholder="Enter Password"
                     />
                 </div>
-                <button type="" class="btn btn-primary btn-block"
-                         style="background-color: red;color: whitesmoke;border:1px solid red;">
-                    <a role="button" class="btn btn-primary" href="/use" style="text-decoration: none;
-                background-color:red;color:whitesmoke;border: red;font-family: Arial;font-size: 25px;">Login</a></button> <br>
+                <button type="" class="btn btn-default btn-block" style="background-color: red;color: whitesmoke;border:1px solid red;" >
+                <a role="button" class="btn btn-default"  style="text-decoration: none;
+                background-color:red;color:whitesmoke;border: red;font-family: Arial;font-size: 25px;">
+                    Login</a>
+                </button>
             </form>
+            <br>
             <p class="lead mt-4" >
-                Nemate racun? <a href="/users/register" style="color: red;" >Register</a>
+                Nemate racun? <a href="/register" style="color: red;" >Register</a>
             </p>
         </div>
     </div>
+    <img src="/images/login.png" style="margin:150px;width: 18%;height: 18%;"/>
+
 </div>
 
 <script>
